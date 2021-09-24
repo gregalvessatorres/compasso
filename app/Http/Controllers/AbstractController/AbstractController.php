@@ -12,16 +12,20 @@ class AbstractController extends Controller
     {
         $rotaBase = $this->parametroRotaBase;
         $nomeBase = $this->parametroNomeBase;
-        return view('menu', compact('rotaBase', 'nomeBase'));
+        return view('base.menu', compact('rotaBase', 'nomeBase'));
     }
 
     public function formUpdate()
     {
-        return view("{$this->parametroRotaBase}.update");
+        $rotaBase = $this->parametroRotaBase;
+        $nomeBase = $this->parametroNomeBase;
+        return view("base.update", compact('rotaBase', 'nomeBase'));
     }
 
     public function formDelete()
     {
-        return view("{$this->parametroRotaBase}.delete");
+        $rotaBase = $this->parametroRotaBase;
+        $nomeBase = $this->parametroNomeBase;
+        return view("base.delete", compact('rotaBase', 'nomeBase'));
     }
 }

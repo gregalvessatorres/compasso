@@ -8,7 +8,6 @@ use App\Models\Produto;
 use App\Services\ProdutoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 
 class ProdutoController extends AbstractController implements ControllerInterface
 {
@@ -36,9 +35,7 @@ class ProdutoController extends AbstractController implements ControllerInterfac
         $mensagem = !$resposta ? ['tipo' => 'danger', 'mensagem' => 'Ocorreu um erro']
             : ['tipo' => 'success', 'mensagem' => 'Usuario criado com Sucesso'];
 
-        Session::flash('mensagem', $mensagem);
-
-        return Redirect::route('produtos_form');
+        return Redirect::route('produtos_form')->with('mensagem', $mensagem);
     }
 
     public function update(Request $request)
@@ -52,9 +49,9 @@ class ProdutoController extends AbstractController implements ControllerInterfac
 
     public function list(Request $request)
     {
-        $listaUsuarios = $this->service->getLista();
+        $listaProdutos = $this->service->getLista();
 
-        return view('produtos.list', compact('listaUsuarios'));
+        return view('produtos.list', compact('listaProdutos'));
     }
 
     public function delete(Request $request)

@@ -35,9 +35,7 @@ class LojaController extends AbstractController implements ControllerInterface
         $mensagem = !$resposta ? ['tipo' => 'danger', 'mensagem' => 'Ocorreu um erro']
             : ['tipo' => 'success', 'mensagem' => 'Loja criado com Sucesso'];
 
-        Session::flash('mensagem', $mensagem);
-
-        return Redirect::route('lojas_form');
+        return Redirect::route('lojas_form')->with('mensagem', $mensagem);
     }
 
     public function update(Request $request)
@@ -62,8 +60,6 @@ class LojaController extends AbstractController implements ControllerInterface
         $resposta = $this->service->deleteLoja($request->get('id'));
         $mensagem = $resposta ? ['tipo' => 'success', 'mensagem' => 'Deletado com sucesso']
             : ['tipo' => 'danger', 'mensagem' => 'Ocorreu um erro'];
-
-        Session::flash('mensagem', $mensagem);
 
         return Redirect::route('lojas_delete')->with('mensagem', $mensagem);
     }

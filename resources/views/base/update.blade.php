@@ -3,13 +3,13 @@
 @section('content')
     <div class="container">
         <div class="nav justify-content-center">
-            <form method="GET" action="{{ route('usuarios_form') }}">
+            <form method="GET" action="{{ route("{$rotaBase}_form") }}">
                 @csrf
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Id do usuário') }}</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __("Id do {$nomeBase}") }}</label>
                     <div class="col-md-6">
-                        <input id="id" type="text" class="form-control @error('id') is-invalid @enderror"
-                               name="id" value="{{ old('id') }}" required autocomplete="name" autofocus>
+                        <input id="id" type="text" class="form-control"
+                               name="id" value="{{ old('id') }}" required autocomplete="id" autofocus>
                     </div>
                 </div>
                 <div class="form-group row mb-0">

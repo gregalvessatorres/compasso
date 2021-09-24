@@ -1,12 +1,5 @@
 ## Sobre o Projeto
-Projeto de estudos
-
-## Requisitos
-Docker
-Docker-Compose
+Projeto de estudos. Foi construido usando o artisan cli com o comando serve;
 
 ## Passo a Passo executar
-- Abrir a pasta do projeto no seu terminal
-- Digitar o comando docker-compose up
-- Digitar o comando docker exec -it web php artisan generate:key
-- digitar o comando docker exec -it web php artisan migrate
+

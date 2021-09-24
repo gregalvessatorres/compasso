@@ -18,7 +18,6 @@ class ProdutoService
         $produto      = Produto::create($dadosCriacao);
 
         $resposta = $produto ? true : false;
-        $this->sincronizaLojas($dadosProduto['lojas'], $produto);
 
         return $resposta;
     }
@@ -32,7 +31,7 @@ class ProdutoService
             $produto->nome    = $dados['nome'];
             $produto->codigo  = $dados['codigo'];
             $produto->valor   = $dados['valor'];
-            $produto->loja_id = $dados['loja_id'];
+            $produto->loja_id = $dados['loja_id'] ?? null;
 
             $resposta = $produto->save() ? true : false;
         }
@@ -45,7 +44,7 @@ class ProdutoService
         $produtos      = Produto::all();
         $listaProdutos = [];
         $produtos->each(function ($produto) use (&$listaProdutos) {
-            $listaProdutos[] = array_merge($produto->toArray(), ['loja_nome' => $produto->loja()->first()->nome]);
+            $listaProdutos[] = array_merge($produto->toArray(), ['loja_nome' => $produto->loja()->first()->nome ?? ""]);
         });
 
         return $listaProdutos;

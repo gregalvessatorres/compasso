@@ -60,12 +60,16 @@ class UsuarioService
         return $listaUsuarios;
     }
 
-    public function getUsuarioELojas(int $id)
+    public function getUsuarioELojas(int $id): ?array
     {
         $usuarioEditar = Usuario::find($id);
-        $lojas         = $usuarioEditar->lojas()->pluck('lojas.id')->toArray();
+        $resposta      = null;
+        if ($usuarioEditar) {
+            $lojas    = $usuarioEditar->lojas()->pluck('lojas.id')->toArray();
+            $resposta = array_merge($usuarioEditar->toArray(), ['lojas' => $lojas]);
+        }
 
-        return array_merge($usuarioEditar->toArray(), ['lojas' => $lojas]);
+        return $resposta;
     }
 
     public function deleteUsuario(array $dados): bool

@@ -18,11 +18,11 @@ class CreateProdutosTable extends Migration
             $table->string('nome');
             $table->string('codigo');
             $table->decimal('valor');
-            $table->unsignedBigInteger('loja_id');
+            $table->unsignedBigInteger('loja_id')->nullable();
 
             $table->foreign('loja_id')
                 ->references('id')
-                ->on('lojas');
+                ->on('lojas')->onDelete('set null');
         });
     }
 

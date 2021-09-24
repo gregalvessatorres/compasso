@@ -35,9 +35,7 @@ class UsuarioController extends AbstractController implements ControllerInterfac
         $mensagem = !$resposta ? ['tipo' => 'danger', 'mensagem' => 'Ocorreu um erro']
             : ['tipo' => 'success', 'mensagem' => 'Usuario criado com Sucesso'];
 
-        Session::flash('mensagem', $mensagem);
-
-        return Redirect::route('usuarios_form');
+        return Redirect::route('usuarios_form')->with('mensagem', $mensagem);
     }
 
     public function update(Request $request)

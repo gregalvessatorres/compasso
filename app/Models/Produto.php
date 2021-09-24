@@ -13,7 +13,8 @@ class Produto extends Model
     protected $fillable = [
         'nome',
         'codigo',
-        'valor'
+        'valor',
+        'loja_id'
     ];
 
     public function loja()
