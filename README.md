@@ -10,8 +10,10 @@ Após fazer o clone do projeto:
    - cp .env.example .env
  - executar o comando: 
    - php artisan key:generate
- - executar o comando: 
-   - php artisan serve
    
-Será criar um banco local com o nome "mysql_compasso" ou ajustar o .env conforme necessário nos parametros:
-    - DB_DATABASE, DB_USERNAME e DB_PASSWORD
+Será criar um banco local com o nome "mysql_compasso" ou ajustar o .env conforme necessário nos parametros:DB_DATABASE, DB_USERNAME e DB_PASSWORD 
+ - executar o comando:
+    - php artisan migrate
+ - executar o comando:
+    - php artisan serve
+ 
