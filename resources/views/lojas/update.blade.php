@@ -3,12 +3,12 @@
 @section('content')
     <div class="container">
         <div class="nav justify-content-center">
-            <form method="GET" action="{{ route('usuarios_form') }}">
+            <form method="GET" action="{{ route('lojas_form') }}">
                 @csrf
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Id do usuário') }}</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Id da Loja') }}</label>
                     <div class="col-md-6">
-                        <input id="id" type="text" class="form-control @error('id') is-invalid @enderror"
+                        <input id="id" type="text" class="form-control"
                                name="id" value="{{ old('id') }}" required autocomplete="name" autofocus>
                     </div>
                 </div>

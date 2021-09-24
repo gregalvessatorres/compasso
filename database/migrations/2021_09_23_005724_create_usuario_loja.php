@@ -35,8 +35,8 @@ class CreateUsuarioLoja extends Migration
      */
     public function down()
     {
-        Schema::table('produtos', fn(Blueprint $table) => $table->dropForeing('loja_id'));
-        Schema::table('produtos', fn(Blueprint $table) => $table->dropForeing('ususario_id'));
+        Schema::table('usuario_loja', fn(Blueprint $table) => $table->dropForeing('loja_id'));
+        Schema::table('usuario_loja', fn(Blueprint $table) => $table->dropForeing('usuario_id'));
         Schema::dropIfExists('usuario_loja');
     }
 }

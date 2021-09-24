@@ -23,6 +23,6 @@ class Usuario extends Authenticatable
     }
     public function lojas()
     {
-        return $this->belongsToMany(Loja::class, 'usuario_loja');
+        return $this->belongsToMany(Loja::class, 'usuario_loja', 'usuario_id', 'loja_id');
     }
 }

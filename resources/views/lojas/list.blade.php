@@ -4,23 +4,21 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                    @if(isset($listaUsuarios))
+                    @if(isset($lojas))
                         <table class="table">
                             <thead>
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Nome</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Lojas que o Usuario pertence</th>
+                                <th scope="col">Endereco</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($listaUsuarios as $usuario)
+                            @foreach($lojas as $loja)
                                 <tr>
-                                    <th scope="row">{{$usuario['id']}}</th>
-                                    <td>{{$usuario['nome']}}</td>
-                                    <td>{{$usuario['email']}}</td>
-                                    <td>{{$usuario['lojas']}}</td>
+                                    <th scope="row">{{$loja['id']}}</th>
+                                    <td>{{$loja['nome']}}</td>
+                                    <td>{{$loja['endereco']}}</td>
                                 </tr>
                             @endforeach
                             </tbody>

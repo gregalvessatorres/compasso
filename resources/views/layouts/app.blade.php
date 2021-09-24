@@ -27,13 +27,13 @@
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 @auth
-                    <a class="navbar-brand" href="{{ route('usuarios_index') }}">
+                    <a class="navbar-brand" href="{{ route('usuarios_menu') }}">
                         Usuários
                     </a>
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ route('lojas_menu') }}">
                         Lojas
                     </a>
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ route('produtos_menu') }}">
                         Produtos
                     </a>
                 @endauth
@@ -86,6 +86,7 @@
         </nav>
 
         <main class="py-4">
+{{--            @if(!empty(session('titulo')))<h1 class="display-6">{{session('titulo')}}</h1>@endif--}}
             @yield('content')
         </main>
     </div>
